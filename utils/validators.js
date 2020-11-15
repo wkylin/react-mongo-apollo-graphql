@@ -8,8 +8,8 @@ module.exports.validateRegisterInput = (username, email, password, confirmPasswo
     errors.email = 'Email must not be empty';
   } else {
     const regExt = /^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
-    // TODO
-    if (regExt.test(email)) {
+
+    if (!regExt.test(email)) {
       errors.email = 'Email must be a valid email address';
     }
   }
