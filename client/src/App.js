@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react'
 import MenuBar from './components/MenuBar';
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Register from './pages/Register'
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <MenuBar />
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/register" component={Register} />
       </Container>
     </Router>
   );
