@@ -3,27 +3,29 @@ import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ApolloClient from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { createHttpLink } from 'apollo-link-http';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { setContext } from 'apollo-link-context';
 
-const httpLink = createHttpLink({
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink
+} from "@apollo/client";
+
+import { setContext } from "@apollo/client/link/context";
+
+const httpLink = new HttpLink({
   uri: 'http://localhost:5000/'
 });
 
-const authLink = setContext(() => {
+const setAuthorizationLink = setContext((request, previousContext) => {
   const token = localStorage.getItem('jwtToken');
   return {
-    headers: {
-      Authorization: token ? `Bearer ${token}` : ''
-    }
-  };
+    headers: {authorization: token ? `Bearer ${token}` : ''}
+  }
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: setAuthorizationLink.concat(httpLink),
   cache: new InMemoryCache()
 });
 
