@@ -8,7 +8,9 @@ import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
 import MyPopup from '../util/MyPopup';
 
-function PostCard({post: { body, createdAt, id, username, likeCount, commentCount, likes }}) {
+function PostCard({
+  post: { body, createdAt, id, username, likeCount, commentCount, likes }
+}) {
   const { user } = useContext(AuthContext);
 
   return (

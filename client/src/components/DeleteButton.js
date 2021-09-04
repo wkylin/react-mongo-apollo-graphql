@@ -18,8 +18,18 @@ function DeleteButton({ postId, commentId, callback }) {
         const data = proxy.readQuery({
           query: FETCH_POSTS_QUERY
         });
-        data.getPosts = data.getPosts.filter((p) => p.id !== postId);
-        proxy.writeQuery({ query: FETCH_POSTS_QUERY, data });
+        // data.getPosts = data.getPosts.filter((p) => p.id !== postId);
+        // proxy.writeQuery({ query: FETCH_POSTS_QUERY, data });
+
+        let newData = [...data.getPosts.filter((p) => p.id !== postId)];
+        proxy.writeQuery({
+          query: FETCH_POSTS_QUERY,
+          data: {
+            getPosts: {
+              newData,
+            },
+          },
+        });
       }
       if (callback) callback();
     },

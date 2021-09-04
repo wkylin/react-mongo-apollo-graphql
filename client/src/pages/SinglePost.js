@@ -24,7 +24,7 @@ function SinglePost(props) {
 
   const [comment, setComment] = useState('');
 
-  const { data, loading } = useQuery(FETCH_POST_QUERY, {
+  const {data, loading} = useQuery(FETCH_POST_QUERY, {
     variables: {
       postId
     }
@@ -147,7 +147,7 @@ function SinglePost(props) {
 }
 
 const SUBMIT_COMMENT_MUTATION = gql`
-  mutation($postId: String!, $body: String!) {
+  mutation($postId: ID!, $body: String!) {
     createComment(postId: $postId, body: $body) {
       id
       comments {
