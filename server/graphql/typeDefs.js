@@ -20,6 +20,9 @@ module.exports = gql`
     username: String!
   }
 
+  """
+  This is Like
+  """
   type Like {
     id: ID!
     createdAt: String!

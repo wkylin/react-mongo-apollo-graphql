@@ -21,5 +21,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
+  },
+  "graphdoc": {
+    "endpoint": "http://localhost:5000/graphql",
+    "output": "../doc/schema"
   }
 }
