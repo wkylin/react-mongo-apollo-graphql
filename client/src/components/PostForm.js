@@ -33,11 +33,11 @@ function PostForm() {
     }
   });
 
+  console.log('error', error);
+
   function createPostCallback() {
     createPost();
   }
-
-  console.log('error', error)
 
   return (
     <>
@@ -59,7 +59,7 @@ function PostForm() {
       {error && (
         <div className="ui error message" style={{ marginBottom: 20 }}>
           <ul className="list">
-            <li>{error.graphQLErrors[0].message}</li>
+            <li>{error?.graphQLErrors[0].message}</li>
           </ul>
         </div>
       )}
