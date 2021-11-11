@@ -1,5 +1,19 @@
 # Readme
 
-## Static page generator for documenting GraphQL Schema
+1.进入到server/client目录 安装依赖
 
-1. [npm install -g @2fd/graphdoc](https://github.com/2fd/graphdoc)
+``` bash
+     npm install
+```
+
+2.启用服务端
+
+``` bash
+     cd server >> npm start
+```
+
+2.启用客服端
+
+``` bash
+     cd client >> npm start
+```
